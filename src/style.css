@@ -1,0 +1,218 @@
+/* COLOR PALETTE
+#54BAB9 teal
+#18978F green
+#E9DAC1 beige
+#F7ECDE light
+#fffcf9 lighter */
+
+body {
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(to bottom, #f7ecde, #fffcf9);
+  background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h3 {
+  color: #18978f;
+}
+
+h1 {
+  font-family: "Alfa Slab One", cursive;
+  display: inline;
+}
+
+form {
+  display: inline;
+  vertical-align: 6px;
+  margin-left: 30px;
+}
+
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.057);
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.content {
+  margin-top: 130px;
+}
+
+.search-input {
+  padding: 5px 10px;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.065);
+  border: none;
+}
+
+.search-input::placeholder {
+  text-align: center;
+  font-size: smaller;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 16px;
+  padding-top: 30px;
+}
+
+.current-location {
+  font-size: 12px;
+  color: black;
+  border-radius: 5px;
+  background-color: #e9dac1;
+  border: none;
+  padding: 8px 15px;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #18978f;
+}
+
+/* CURRENT WEATHER */
+
+.weather-today {
+  width: 70%;
+  border: solid #18978e30;
+}
+
+.status-top {
+  font-size: 14px;
+  text-align: right;
+}
+
+.temperature-data {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: right;
+  line-height: 50px;
+}
+
+.current-weather-details {
+  font-size: 14px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.highest-temperature-today {
+  width: 15px;
+}
+
+.lowest-temperature-today {
+  width: 15px;
+  margin-left: 10px;
+}
+
+.current-weather-image {
+  width: 170px;
+  margin-top: 10px;
+}
+
+.block-weather-now {
+  display: block;
+  padding: 30px 13% 30px 30px;
+}
+
+.mainTemp.tempUnit {
+  vertical-align: super;
+  font-size: 18px;
+}
+
+a.clickable.fUnit,
+a.clickable.cUnit {
+  color: #9f9f9f;
+  text-decoration: none;
+}
+
+a.notClickable.fUnit,
+a.notClickable.cUnit {
+  color: black;
+  text-decoration: none;
+}
+
+a.clickable.fUnit:hover,
+a.clickable.cUnit:hover {
+  color: #18978f;
+  cursor: pointer;
+}
+
+a.notClickable.fUnit:hover,
+a.notClickable.cUnit:hover {
+  color: black;
+  cursor: default;
+}
+
+/* EXTRAS */
+
+.more-info {
+  padding: 10px 0px;
+  max-width: 70%;
+  background-color: #18978f;
+  margin: 0 auto;
+  color: white;
+}
+
+.extra-item {
+  margin: 0px 15px;
+  font-size: 14px;
+}
+
+/* FORECAST */
+
+.weather-forecast {
+  width: 70%;
+  border: none;
+}
+
+.forecast-content {
+  padding: 30px 0px;
+}
+
+.forecast-date {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.future-forecast-image {
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+.bg-1 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bg-2 {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.highest-temperature-forecast {
+  width: 20px;
+}
+
+.forecast-temperature.highest-temperature-number {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.lowest-temperature-forecast {
+  width: 12px;
+}
+
+.forecast-temperature.lowest-temperature-number {
+  font-size: 14px;
+}
