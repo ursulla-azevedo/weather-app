@@ -216,3 +216,16 @@ a.notClickable.cUnit:hover {
 .forecast-temperature.lowest-temperature-number {
   font-size: 14px;
 }
+
+/* FOOTER */
+
+.open-source a {
+  text-decoration: none;
+  color: #18978f;
+}
+
+.open-source {
+  text-align: center;
+  font-family: monospace;
+  font-size: 12px;
+}
