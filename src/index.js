@@ -5,7 +5,15 @@ console.log(currentDate);
 
 let day = currentDate.getDate();
 let hours = currentDate.getHours();
+if (hours < 10) {
+  hours = `0${minutes}`;
+}
+
 let minutes = currentDate.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+
 let year = currentDate.getFullYear();
 
 let weekDays = [
