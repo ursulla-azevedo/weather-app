@@ -1,12 +1,11 @@
 // DISPLAY DATE
-
 let currentDate = new Date();
 console.log(currentDate);
 
 let day = currentDate.getDate();
 let hours = currentDate.getHours();
 if (hours < 10) {
-  hours = `0${minutes}`;
+  hours = `0${hours}`;
 }
 
 let minutes = currentDate.getMinutes();
@@ -50,8 +49,6 @@ dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${yea
 // SEARCH ENGINE
 
 function showTemperature(response) {
-  console.log(response);
-
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -105,6 +102,13 @@ function searchCity(event) {
 
 let searchBar = document.querySelector("form");
 searchBar.addEventListener("submit", searchCity);
+
+// CALL FOR DEFAULT LOCATION
+
+let apiKey = "b53f6bd5a46cab6958ad3d105cf50f94";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Lisbon&units=metric&appid=${apiKey}`;
+
+axios.get(apiUrl).then(showTemperature);
 
 // GEOLOCATION
 
