@@ -56,11 +56,177 @@ let dateToday = document.querySelector("#dateToday");
 
 dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${year} | ${hours}:${minutes}`;
 
+// FORECAST
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
+
+  let forecastDay = document.querySelector("#forecastDay");
+  let forecastDayHTML = `<div class="row">`;
+
+  forecast.forEach(function (day, index) {
+    if (index === 0 || index === 2 || index === 4) {
+      let weatherImg = day.weather[0].icon;
+      let weatherTodayImgSrc = "";
+      let weatherTodayImgAlt = "";
+
+      if (weatherImg === "01d") {
+        weatherTodayImgSrc = "media/weather-elements_Sun.svg";
+        weatherTodayImgAlt = "Sun";
+      } else if (weatherImg === "01n") {
+        weatherTodayImgSrc = "media/weather-elements_Moon.svg";
+        weatherTodayImgAlt = "Moon";
+      } else if (weatherImg === "02d") {
+        weatherTodayImgSrc = "media/weather-elements_Sun-clouds.svg";
+        weatherTodayImgAlt = "Sun and clouds";
+      } else if (weatherImg === "02n") {
+        weatherTodayImgSrc = "media/weather-elements_Moon-clouds.svg";
+        weatherTodayImgAlt = "Moon and clouds";
+      } else if (weatherImg === "03d" || weatherImg === "03n") {
+        weatherTodayImgSrc = "media/weather-elements_Clouds.svg";
+        weatherTodayImgAlt = "Clouds";
+      } else if (weatherImg === "04d" || weatherImg === "04n") {
+        weatherTodayImgSrc = "media/weather-elements_Clouds-more.svg";
+        weatherTodayImgAlt = "Heavy clouds";
+      } else if (
+        weatherImg === "09d" ||
+        weatherImg === "09n" ||
+        weatherImg === "10n" ||
+        weatherImg === "10n"
+      ) {
+        weatherTodayImgSrc = "media/weather-elements_Rain.svg";
+        weatherTodayImgAlt = "Rain";
+      } else if (weatherImg === "11d" || weatherImg === "11n") {
+        weatherTodayImgSrc = "media/weather-elements_Storm.svg";
+        weatherTodayImgAlt = "Storm";
+      } else if (weatherImg === "13d" || weatherImg === "13n") {
+        weatherTodayImgSrc = "media/weather-elements_Snow.svg";
+        weatherTodayImgAlt = "Snow";
+      } else if (weatherImg === "50d" || weatherImg === "50n") {
+        weatherTodayImgSrc = "media/weather-elements_Wind.svg";
+        weatherTodayImgAlt = "Wind";
+      }
+
+      forecastDayHTML =
+        forecastDayHTML +
+        `
+    <div class="col forecast-content bg-1">
+    <div class="forecast-date">${day.dt}</div>
+            <img
+              src="${weatherTodayImgSrc}"
+              alt="${weatherTodayImgAlt}"
+              class="future-forecast-image"
+            />
+            <br />
+            <img
+              src="media/weather-elements_Temperature-high.svg"
+              alt="Highest temperature"
+              class="highest-temperature-forecast"
+            />
+            <span class="highest-temperature-number forecast-temperature"
+              >${Math.round(day.temp.max)}°C</span
+            >
+            <br />
+            <img
+              src="media/weather-elements_Temperature-low.svg"
+              alt="Lowest temperature"
+              class="lowest-temperature-forecast"
+            />
+            <span class="lowest-temperature-number forecast-temperature"
+              >${Math.round(day.temp.min)}°C</span
+            >
+            </div>`;
+    } else if (index === 1 || index === 3) {
+      let weatherImg = day.weather[0].icon;
+      let weatherTodayImgSrc = "";
+      let weatherTodayImgAlt = "";
+
+      if (weatherImg === "01d") {
+        weatherTodayImgSrc = "media/weather-elements_Sun.svg";
+        weatherTodayImgAlt = "Sun";
+      } else if (weatherImg === "01n") {
+        weatherTodayImgSrc = "media/weather-elements_Moon.svg";
+        weatherTodayImgAlt = "Moon";
+      } else if (weatherImg === "02d") {
+        weatherTodayImgSrc = "media/weather-elements_Sun-clouds.svg";
+        weatherTodayImgAlt = "Sun and clouds";
+      } else if (weatherImg === "02n") {
+        weatherTodayImgSrc = "media/weather-elements_Moon-clouds.svg";
+        weatherTodayImgAlt = "Moon and clouds";
+      } else if (weatherImg === "03d" || weatherImg === "03n") {
+        weatherTodayImgSrc = "media/weather-elements_Clouds.svg";
+        weatherTodayImgAlt = "Clouds";
+      } else if (weatherImg === "04d" || weatherImg === "04n") {
+        weatherTodayImgSrc = "media/weather-elements_Clouds-more.svg";
+        weatherTodayImgAlt = "Heavy clouds";
+      } else if (
+        weatherImg === "09d" ||
+        weatherImg === "09n" ||
+        weatherImg === "10n" ||
+        weatherImg === "10n"
+      ) {
+        weatherTodayImgSrc = "media/weather-elements_Rain.svg";
+        weatherTodayImgAlt = "Rain";
+      } else if (weatherImg === "11d" || weatherImg === "11n") {
+        weatherTodayImgSrc = "media/weather-elements_Storm.svg";
+        weatherTodayImgAlt = "Storm";
+      } else if (weatherImg === "13d" || weatherImg === "13n") {
+        weatherTodayImgSrc = "media/weather-elements_Snow.svg";
+        weatherTodayImgAlt = "Snow";
+      } else if (weatherImg === "50d" || weatherImg === "50n") {
+        weatherTodayImgSrc = "media/weather-elements_Wind.svg";
+        weatherTodayImgAlt = "Wind";
+      }
+
+      forecastDayHTML =
+        forecastDayHTML +
+        `
+    <div class="col forecast-content bg-2">
+    <div class="forecast-date">${day.dt}</div>
+            <img
+              src="${weatherTodayImgSrc}"
+              alt="${weatherTodayImgAlt}"
+              class="future-forecast-image"
+            />
+            <br />
+            <img
+              src="media/weather-elements_Temperature-high.svg"
+              alt="Highest temperature"
+              class="highest-temperature-forecast"
+            />
+            <span class="highest-temperature-number forecast-temperature"
+              >${Math.round(day.temp.max)}°C</span
+            >
+            <br />
+            <img
+              src="media/weather-elements_Temperature-low.svg"
+              alt="Lowest temperature"
+              class="lowest-temperature-forecast"
+            />
+            <span class="lowest-temperature-number forecast-temperature"
+              >${Math.round(day.temp.min)}°C</span
+            >
+            </div>`;
+    }
+  });
+
+  forecastDayHTML = forecastDayHTML + `</div>`;
+
+  forecastDay.innerHTML = forecastDayHTML;
+}
+
+function getForecast(response) {
+  let apiKey = "b53f6bd5a46cab6958ad3d105cf50f94";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&units=metric&appid=${apiKey}`;
+  console.log(response);
+
+  axios.get(apiUrl).then(showForecast);
+}
+
 // SEARCH ENGINE
 
 function showTemperature(response) {
-  console.log(response);
-
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -141,6 +307,7 @@ function showTemperature(response) {
   }
 
   displayIcon();
+  getForecast(response.data.coord);
 
   changeToCelsius();
 }
