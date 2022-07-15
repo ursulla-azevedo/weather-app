@@ -59,39 +59,32 @@ dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${yea
 // SEARCH ENGINE
 
 function showTemperature(response) {
-  console.log(response);
-
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
   cityName.innerHTML = `${city}, ${country}`;
 
-  let tempNow = Math.round(response.data.main.temp);
-  let tempMax = Math.round(response.data.main.temp_max);
-  let tempMin = Math.round(response.data.main.temp_min);
+  celsiusTemp = Math.round(response.data.main.temp);
+
+  tempMax = Math.round(response.data.main.temp_max);
+  tempMin = Math.round(response.data.main.temp_min);
 
   let temp = document.querySelector(".tempNow");
-  temp.innerHTML = tempNow;
+  temp.innerHTML = celsiusTemp;
 
   let tempMaxPage = document.querySelector(
     ".current-temperature.highest-temperature-number"
   );
-  tempMaxPage.innerHTML = `${tempMax}°C`;
+  tempMaxPage.innerHTML = `${tempMax}`;
 
   let tempMinPage = document.querySelector(
     ".current-temperature.lowest-temperature-number"
   );
-  tempMinPage.innerHTML = `${tempMin}°C`;
+  tempMinPage.innerHTML = `${tempMin}`;
 
   let status = response.data.weather[0].description;
   let statusPage = document.querySelector(".weather-status");
   statusPage.innerHTML = status;
-
-  /*
-  let rain = Math.round(response.precipitation.value);
-  let rainPage = document.querySelector(".extra-rain");
-  rainPage.innerHTML = `Rain: ${rain}mm`;
-  */
 
   let wind = Math.round(response.data.wind.speed);
   let windPage = document.querySelector(".extra-wind");
@@ -100,6 +93,8 @@ function showTemperature(response) {
   let humidity = Math.round(response.data.main.humidity);
   let humidityPage = document.querySelector(".extra-humidity");
   humidityPage.innerHTML = `Humidity: ${humidity}%`;
+
+  changeToCelsius();
 }
 
 function searchCity(event) {
@@ -125,19 +120,18 @@ axios.get(apiUrl).then(showTemperature);
 // GEOLOCATION
 
 function showLocalWeather(response) {
-  console.log(response);
-
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
   cityName.innerHTML = `${city}, ${country}`;
 
-  let tempNow = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.main.temp);
+
   let tempMax = Math.round(response.data.main.temp_max);
   let tempMin = Math.round(response.data.main.temp_min);
 
   let temp = document.querySelector(".tempNow");
-  temp.innerHTML = tempNow;
+  temp.innerHTML = celsiusTemp;
 
   let tempMaxPage = document.querySelector(
     ".current-temperature.highest-temperature-number"
@@ -153,12 +147,6 @@ function showLocalWeather(response) {
   let statusPage = document.querySelector(".weather-status");
   statusPage.innerHTML = status;
 
-  /*
-  let rain = Math.round(response.precipitation.value);
-  let rainPage = document.querySelector(".extra-rain");
-  rainPage.innerHTML = `Rain: ${rain}mm`;
-  */
-
   let wind = Math.round(response.data.wind.speed);
   let windPage = document.querySelector(".extra-wind");
   windPage.innerHTML = `Wind: ${wind} m/s`;
@@ -166,6 +154,8 @@ function showLocalWeather(response) {
   let humidity = Math.round(response.data.main.humidity);
   let humidityPage = document.querySelector(".extra-humidity");
   humidityPage.innerHTML = `Humidity: ${humidity}%`;
+
+  changeToCelsius();
 }
 
 function showLocalPosition(response) {
@@ -186,26 +176,35 @@ let buttonLocation = document.querySelector(".current-location");
 buttonLocation.addEventListener("click", getCurrentPosition);
 
 // CELSIUS TO FAHRENHEIT
-/*
+
 function changeToFahrenheit() {
   let mainTemp = document.querySelector(".mainTemp.tempUnit");
   mainTemp.innerHTML = `<a href="#" class="fUnit notClickable" id="fUnit">°F</a> |
                 <a href="#" class="cUnit clickable" id="cUnit">°C</a>`;
 
-  let tempNow = document.querySelector(".tempNow");
-  tempNow.innerHTML = "64";
+  let celsiusTemp = document.querySelector(".tempNow");
+  let fahrenheitTemp = Math.round((celsiusTemp.innerHTML * 9) / 5 + 32);
+  celsiusTemp.innerHTML = fahrenheitTemp;
 
-  let highestTemperatureNow = document.querySelector(
-    ".current-temperature.highest-temperature-number"
+  let highestTemperatureNow = document.querySelector("#highestToday");
+
+  let highestTodayF = Math.round(
+    (highestTemperatureNow.innerHTML * 9) / 5 + 32
   );
-  highestTemperatureNow.innerHTML = `<span class="highest-temperature-number current-temperature">
-                71°F</span
-              >`;
+  highestTemperatureNow.innerHTML = highestTodayF;
 
   let lowestTemperatureNow = document.querySelector(
     ".current-temperature.lowest-temperature-number"
   );
-  lowestTemperatureNow.innerHTML = `<span class="lowest-temperature-number current-temperature">62°F</span>`;
+
+  let lowestTodayF = Math.round((lowestTemperatureNow.innerHTML * 9) / 5 + 32);
+  lowestTemperatureNow.innerHTML = lowestTodayF;
+
+  let unit1 = document.querySelector(".unit1");
+  unit1.innerHTML = "°F";
+
+  let unit2 = document.querySelector(".unit2");
+  unit2.innerHTML = "°F";
 
   let cUnit = document.querySelector("#cUnit");
   cUnit.addEventListener("click", changeToCelsius);
@@ -217,27 +216,34 @@ function changeToCelsius() {
                 <a href="#" class="fUnit clickable" id="fUnit">°F</a>`;
 
   let tempNow = document.querySelector(".tempNow");
-  tempNow.innerHTML = "18";
+  tempNow.innerHTML = celsiusTemp;
 
   let highestTemperatureNow = document.querySelector(
     ".current-temperature.highest-temperature-number"
   );
-  highestTemperatureNow.innerHTML = `<span class="highest-temperature-number current-temperature">
-                22°C</span
-              >`;
+  highestTemperatureNow.innerHTML = tempMax;
 
   let lowestTemperatureNow = document.querySelector(
     ".current-temperature.lowest-temperature-number"
   );
-  lowestTemperatureNow.innerHTML = `<span class="lowest-temperature-number current-temperature">17°C</span>`;
+  lowestTemperatureNow.innerHTML = tempMin;
+
+  let unit1 = document.querySelector(".unit1");
+  unit1.innerHTML = "°C";
+
+  let unit2 = document.querySelector(".unit2");
+  unit2.innerHTML = "°C";
 
   let fUnit = document.querySelector("#fUnit");
   fUnit.addEventListener("click", changeToFahrenheit);
 }
+
+let celsiusTemp = null;
+let tempMax = null;
+let tempMin = null;
 
 let fUnit = document.querySelector("#fUnit");
 fUnit.addEventListener("click", changeToFahrenheit);
 
 let cUnit = document.querySelector("#cUnit");
 cUnit.addEventListener("click", changeToCelsius);
-*/

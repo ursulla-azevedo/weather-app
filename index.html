@@ -63,7 +63,7 @@
               <strong>Friday</strong> <br />July 1st, 2022 | 09:00
             </div>
             <div class="temperature-data">
-              <span class="tempNow">18</span
+              <span class="tempNow"></span
               ><span class="tempUnit mainTemp"
                 ><a href="#" class="cUnit notClickable" id="cUnit">°C</a> |
                 <a href="#" class="fUnit clickable" id="fUnit">°F</a></span
@@ -76,17 +76,22 @@
                 alt="Highest temperature"
                 class="highest-temperature-today"
               />
-              <span class="highest-temperature-number current-temperature">
-                22°C</span
+              <span
+                class="highest-temperature-number current-temperature"
+                id="highestToday"
               >
+              </span
+              ><span class="unit1">°C</span>
               <img
                 src="media/weather-elements_Temperature-low.svg"
                 alt="Lowest temperature"
                 class="lowest-temperature-today"
               />
-              <span class="lowest-temperature-number current-temperature"
-                >17°C</span
-              >
+              <span
+                class="lowest-temperature-number current-temperature"
+                id="lowestToday"
+              ></span
+              ><span class="unit2">°C</span>
             </div>
           </div>
           <div class="col-6 current-weather-img-block">
@@ -101,11 +106,6 @@
 
       <!--EXTRAS-->
       <div class="more-info">
-        <span class="extra-item"
-          ><i class="fa-solid fa-umbrella extras-icon"></i>
-          <span class="extra-rain">Rain: Unknown</span></span
-        >
-        |
         <span class="extra-item"
           ><i class="fa-solid fa-wind extras-icon"></i>
           <span class="extra-wind">Wind: 23 km/h</span></span
