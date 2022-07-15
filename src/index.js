@@ -92,7 +92,7 @@ function showForecast(response) {
       } else if (
         weatherImg === "09d" ||
         weatherImg === "09n" ||
-        weatherImg === "10n" ||
+        weatherImg === "10d" ||
         weatherImg === "10n"
       ) {
         weatherTodayImgSrc = "media/weather-elements_Rain.svg";
@@ -108,6 +108,7 @@ function showForecast(response) {
         weatherTodayImgAlt = "Wind";
       }
 
+      console.log(day);
       forecastDayHTML =
         forecastDayHTML +
         `
@@ -163,7 +164,7 @@ function showForecast(response) {
       } else if (
         weatherImg === "09d" ||
         weatherImg === "09n" ||
-        weatherImg === "10n" ||
+        weatherImg === "10d" ||
         weatherImg === "10n"
       ) {
         weatherTodayImgSrc = "media/weather-elements_Rain.svg";
@@ -289,7 +290,7 @@ function showTemperature(response) {
     } else if (
       weatherImg === "09d" ||
       weatherImg === "09n" ||
-      weatherImg === "10n" ||
+      weatherImg === "10d" ||
       weatherImg === "10n"
     ) {
       weatherTodayImg.src = "media/weather-elements_Rain.svg";
