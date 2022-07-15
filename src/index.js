@@ -104,18 +104,22 @@ function showTemperature(response) {
 
     if (weatherImg === "01d") {
       weatherTodayImg.src = "media/weather-elements_Sun.svg";
+      weatherTodayImg.alt = "Sun";
     } else if (weatherImg === "01n") {
       weatherTodayImg.src = "media/weather-elements_Moon.svg";
-    } else if (weatherImg === "01n") {
-      weatherTodayImg.src = "media/weather-elements_Moon.svg";
+      weatherTodayImg.alt = "Moon";
     } else if (weatherImg === "02d") {
       weatherTodayImg.src = "media/weather-elements_Sun-clouds.svg";
+      weatherTodayImg.alt = "Sun and clouds";
     } else if (weatherImg === "02n") {
       weatherTodayImg.src = "media/weather-elements_Moon-clouds.svg";
+      weatherTodayImg.alt = "Moon and clouds";
     } else if (weatherImg === "03d" || weatherImg === "03n") {
       weatherTodayImg.src = "media/weather-elements_Clouds.svg";
+      weatherTodayImg.alt = "Clouds";
     } else if (weatherImg === "04d" || weatherImg === "04n") {
       weatherTodayImg.src = "media/weather-elements_Clouds-more.svg";
+      weatherTodayImg.alt = "Heavy clouds";
     } else if (
       weatherImg === "09d" ||
       weatherImg === "09n" ||
@@ -123,12 +127,16 @@ function showTemperature(response) {
       weatherImg === "10n"
     ) {
       weatherTodayImg.src = "media/weather-elements_Rain.svg";
+      weatherTodayImg.alt = "Rain";
     } else if (weatherImg === "11d" || weatherImg === "11n") {
       weatherTodayImg.src = "media/weather-elements_Storm.svg";
+      weatherTodayImg.alt = "Storm";
     } else if (weatherImg === "13d" || weatherImg === "13n") {
       weatherTodayImg.src = "media/weather-elements_Snow.svg";
+      weatherTodayImg.alt = "Snow";
     } else if (weatherImg === "50d" || weatherImg === "50n") {
       weatherTodayImg.src = "media/weather-elements_Wind.svg";
+      weatherTodayImg.alt = "Wind";
     }
   }
 
