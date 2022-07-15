@@ -7,6 +7,16 @@ let hours = currentDate.getHours();
 if (hours < 10) {
   hours = `0${hours}`;
 }
+if (hours < 5 && hours > 19) {
+  let body = document.querySelector("body");
+  body.setAttribute("class", "evening");
+} else if (hours >= 5 && hours < 13) {
+  let body = document.querySelector("body");
+  body.setAttribute("class", "morning");
+} else {
+  let body = document.querySelector("body");
+  body.setAttribute("class", "afternoon");
+}
 
 let minutes = currentDate.getMinutes();
 if (minutes < 10) {

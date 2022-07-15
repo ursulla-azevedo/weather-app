@@ -9,14 +9,38 @@ body {
   padding-bottom: 50px;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  background-image: linear-gradient(to bottom, #f7ecde, #fffcf9);
+
   background-repeat: no-repeat;
+}
+
+.morning {
+  background: linear-gradient(
+    0deg,
+    rgba(217, 234, 255, 1) 0%,
+    rgba(198, 254, 255, 1) 100%
+  );
+}
+
+.afternoon {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 217, 217, 1) 0%,
+    rgba(255, 236, 195, 1) 100%
+  );
+}
+
+.evening {
+  background: linear-gradient(
+    0deg,
+    rgba(205, 208, 219, 1) 0%,
+    rgba(182, 197, 222, 1) 100%
+  );
 }
 
 h1,
 h2,
 h3 {
-  color: #18978f;
+  color: #454545;
 }
 
 h1 {
@@ -69,23 +93,23 @@ h3 {
 
 .current-location {
   font-size: 12px;
-  color: black;
+  color: rgb(255, 255, 255);
   border-radius: 5px;
-  background-color: #e9dac1;
+  background-color: #45454584;
   border: none;
   padding: 8px 15px;
   margin-bottom: 20px;
 }
 
 .highlight {
-  color: #18978f;
+  color: #454545;
 }
 
 /* CURRENT WEATHER */
 
 .weather-today {
   width: 70%;
-  border: solid #18978e30;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .status-top {
@@ -144,7 +168,7 @@ a.notClickable.cUnit {
 
 a.clickable.fUnit:hover,
 a.clickable.cUnit:hover {
-  color: #18978f;
+  color: #626262;
   cursor: pointer;
 }
 
@@ -159,7 +183,7 @@ a.notClickable.cUnit:hover {
 .more-info {
   padding: 10px 0px;
   max-width: 70%;
-  background-color: #18978f;
+  background-color: #45454584;
   margin: 0 auto;
   color: white;
 }
@@ -193,11 +217,11 @@ a.notClickable.cUnit:hover {
 }
 
 .bg-1 {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .bg-2 {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .highest-temperature-forecast {
@@ -221,7 +245,7 @@ a.notClickable.cUnit:hover {
 
 .open-source a {
   text-decoration: none;
-  color: #18978f;
+  color: #45454584;
 }
 
 .open-source {
@@ -229,3 +253,6 @@ a.notClickable.cUnit:hover {
   font-family: monospace;
   font-size: 12px;
 }
+
+
+/* #18978f
