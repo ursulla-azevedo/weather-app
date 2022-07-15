@@ -59,6 +59,8 @@ dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${yea
 // SEARCH ENGINE
 
 function showTemperature(response) {
+  console.log(response);
+
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -81,7 +83,7 @@ function showTemperature(response) {
   );
   tempMinPage.innerHTML = `${tempMin}°C`;
 
-  let status = response.data.weather[0].main;
+  let status = response.data.weather[0].description;
   let statusPage = document.querySelector(".weather-status");
   statusPage.innerHTML = status;
 

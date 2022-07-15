@@ -130,6 +130,10 @@ h3 {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.current-weather-details::first-letter {
+  text-transform: capitalize;
+}
+
 .highest-temperature-today {
   width: 15px;
 }
