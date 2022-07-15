@@ -59,6 +59,8 @@ dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${yea
 // SEARCH ENGINE
 
 function showTemperature(response) {
+  console.log(response);
+
   let cityName = document.querySelector("h2");
   let city = response.data.name;
   let country = response.data.sys.country;
@@ -93,6 +95,44 @@ function showTemperature(response) {
   let humidity = Math.round(response.data.main.humidity);
   let humidityPage = document.querySelector(".extra-humidity");
   humidityPage.innerHTML = `Humidity: ${humidity}%`;
+
+  // IMAGES
+
+  function displayIcon() {
+    let weatherTodayImg = document.querySelector(".current-weather-image");
+    let weatherImg = response.data.weather[0].icon;
+
+    if (weatherImg === "01d") {
+      weatherTodayImg.src = "media/weather-elements_Sun.svg";
+    } else if (weatherImg === "01n") {
+      weatherTodayImg.src = "media/weather-elements_Moon.svg";
+    } else if (weatherImg === "01n") {
+      weatherTodayImg.src = "media/weather-elements_Moon.svg";
+    } else if (weatherImg === "02d") {
+      weatherTodayImg.src = "media/weather-elements_Sun-clouds.svg";
+    } else if (weatherImg === "02n") {
+      weatherTodayImg.src = "media/weather-elements_Moon-clouds.svg";
+    } else if (weatherImg === "03d" || weatherImg === "03n") {
+      weatherTodayImg.src = "media/weather-elements_Clouds.svg";
+    } else if (weatherImg === "04d" || weatherImg === "04n") {
+      weatherTodayImg.src = "media/weather-elements_Clouds-more.svg";
+    } else if (
+      weatherImg === "09d" ||
+      weatherImg === "09n" ||
+      weatherImg === "10n" ||
+      weatherImg === "10n"
+    ) {
+      weatherTodayImg.src = "media/weather-elements_Rain.svg";
+    } else if (weatherImg === "11d" || weatherImg === "11n") {
+      weatherTodayImg.src = "media/weather-elements_Storm.svg";
+    } else if (weatherImg === "13d" || weatherImg === "13n") {
+      weatherTodayImg.src = "media/weather-elements_Snow.svg";
+    } else if (weatherImg === "50d" || weatherImg === "50n") {
+      weatherTodayImg.src = "media/weather-elements_Wind.svg";
+    }
+  }
+
+  displayIcon();
 
   changeToCelsius();
 }
