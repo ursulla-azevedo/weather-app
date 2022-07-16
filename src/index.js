@@ -1,6 +1,5 @@
 // DISPLAY DATE
 let currentDate = new Date();
-console.log(currentDate);
 
 let day = currentDate.getDate();
 let hours = currentDate.getHours();
@@ -60,7 +59,6 @@ dateToday.innerHTML = `<strong>${weekDay}</strong> <br /> ${month} ${day}, ${yea
 
 function showForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
 
   let forecastDay = document.querySelector("#forecastDay");
   let forecastDayHTML = `<div class="row">`;
@@ -240,7 +238,6 @@ function showForecast(response) {
 function getForecast(response) {
   let apiKey = "b53f6bd5a46cab6958ad3d105cf50f94";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.lat}&lon=${response.lon}&units=metric&appid=${apiKey}`;
-  console.log(response);
 
   axios.get(apiUrl).then(showForecast);
 }
@@ -442,6 +439,9 @@ function changeToFahrenheit() {
   let unit2 = document.querySelector(".unit2");
   unit2.innerHTML = "°F";
 
+  let fMessage = document.querySelector("#fahrenheitMessage");
+  fMessage.innerHTML = `Fahrenheit conversion only available for today's forecast.`;
+
   let cUnit = document.querySelector("#cUnit");
   cUnit.addEventListener("click", changeToCelsius);
 }
@@ -469,6 +469,9 @@ function changeToCelsius() {
 
   let unit2 = document.querySelector(".unit2");
   unit2.innerHTML = "°C";
+
+  let fMessage = document.querySelector("#fahrenheitMessage");
+  fMessage.innerHTML = ``;
 
   let fUnit = document.querySelector("#fUnit");
   fUnit.addEventListener("click", changeToFahrenheit);

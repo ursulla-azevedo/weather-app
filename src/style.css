@@ -197,6 +197,12 @@ a.notClickable.cUnit:hover {
   font-size: 14px;
 }
 
+#fahrenheitMessage {
+  margin-top: 10px;
+  font-size: 12px;
+  color: black;
+}
+
 /* FORECAST */
 
 .weather-forecast {
