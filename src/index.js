@@ -66,7 +66,23 @@ function showForecast(response) {
   let forecastDayHTML = `<div class="row">`;
 
   forecast.forEach(function (day, index) {
-    if (index === 0 || index === 2 || index === 4) {
+    let unixTimestamp = day.dt;
+    let milliseconds = unixTimestamp * 1000;
+    let dateConverted = new Date(milliseconds);
+    let dayForecast = dateConverted.toLocaleString("en-US", { day: "numeric" });
+    let monthForecast = dateConverted.toLocaleString("en-US", {
+      month: "numeric",
+    });
+
+    if (dayForecast < 10) {
+      dayForecast = `0${dayForecast}`;
+    }
+
+    if (monthForecast < 10) {
+      monthForecast = `0${monthForecast}`;
+    }
+
+    if (index === 1 || index === 3 || index === 5) {
       let weatherImg = day.weather[0].icon;
       let weatherTodayImgSrc = "";
       let weatherTodayImgAlt = "";
@@ -108,12 +124,11 @@ function showForecast(response) {
         weatherTodayImgAlt = "Wind";
       }
 
-      console.log(day);
       forecastDayHTML =
         forecastDayHTML +
         `
     <div class="col forecast-content bg-1">
-    <div class="forecast-date">${day.dt}</div>
+    <div class="forecast-date">${dayForecast}/${monthForecast}</div>
             <img
               src="${weatherTodayImgSrc}"
               alt="${weatherTodayImgAlt}"
@@ -138,7 +153,7 @@ function showForecast(response) {
               >${Math.round(day.temp.min)}°C</span
             >
             </div>`;
-    } else if (index === 1 || index === 3) {
+    } else if (index === 2 || index === 4) {
       let weatherImg = day.weather[0].icon;
       let weatherTodayImgSrc = "";
       let weatherTodayImgAlt = "";
@@ -184,7 +199,7 @@ function showForecast(response) {
         forecastDayHTML +
         `
     <div class="col forecast-content bg-2">
-    <div class="forecast-date">${day.dt}</div>
+    <div class="forecast-date">${dayForecast}/${monthForecast}</div>
             <img
               src="${weatherTodayImgSrc}"
               alt="${weatherTodayImgAlt}"
