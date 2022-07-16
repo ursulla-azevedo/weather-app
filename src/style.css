@@ -208,9 +208,15 @@ a.notClickable.cUnit:hover {
   padding: 30px 0px;
 }
 
-.forecast-date {
+.main.forecast-date {
   font-size: 14px;
   font-weight: 700;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.forecast-date {
+  font-size: 12px;
+  font-weight: 300;
   color: rgba(0, 0, 0, 0.5);
 }
 

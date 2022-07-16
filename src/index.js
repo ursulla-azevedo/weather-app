@@ -69,6 +69,9 @@ function showForecast(response) {
     let unixTimestamp = day.dt;
     let milliseconds = unixTimestamp * 1000;
     let dateConverted = new Date(milliseconds);
+    let weekdayForecast = dateConverted.toLocaleString("en-US", {
+      weekday: "long",
+    });
     let dayForecast = dateConverted.toLocaleString("en-US", { day: "numeric" });
     let monthForecast = dateConverted.toLocaleString("en-US", {
       month: "numeric",
@@ -128,7 +131,8 @@ function showForecast(response) {
         forecastDayHTML +
         `
     <div class="col forecast-content bg-1">
-    <div class="forecast-date">${dayForecast}/${monthForecast}</div>
+    <div class="forecast-date main">${weekdayForecast}</div> 
+    <div class="forecast-date">${dayForecast}/${monthForecast}</div> 
             <img
               src="${weatherTodayImgSrc}"
               alt="${weatherTodayImgAlt}"
@@ -199,7 +203,8 @@ function showForecast(response) {
         forecastDayHTML +
         `
     <div class="col forecast-content bg-2">
-    <div class="forecast-date">${dayForecast}/${monthForecast}</div>
+    <div class="forecast-date main">${weekdayForecast}</div> 
+    <div class="forecast-date">${dayForecast}/${monthForecast}</div> 
             <img
               src="${weatherTodayImgSrc}"
               alt="${weatherTodayImgAlt}"
