@@ -37,7 +37,10 @@ body {
   );
 }
 
-h1,
+h1 {
+  color: white;
+}
+
 h2,
 h3 {
   color: #454545;
@@ -57,7 +60,7 @@ form {
 .header {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: white;
+  background-color: #454545;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.057);
   position: fixed;
   top: 0px;
@@ -72,13 +75,16 @@ form {
 .search-input {
   padding: 5px 10px;
   width: 30%;
-  background-color: rgba(0, 0, 0, 0.065);
+  background-color: rgba(255, 255, 255, 0.2);
   border: none;
+  border-radius: 5px;
+  box-shadow: inset black;
 }
 
 .search-input::placeholder {
   text-align: center;
   font-size: smaller;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 h2 {
